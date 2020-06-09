@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render should match the snapshot 1`] = `
+<Styled(Row)>
+  <WeatherCard
+    dayOfWeek="Tuesday"
+    id={1}
+    key="1"
+    temperMax="31 °C"
+    temperMin="29 °C"
+  />
+</Styled(Row)>
+`;
