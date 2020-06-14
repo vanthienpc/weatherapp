@@ -9,7 +9,7 @@ export const handleReducer = <T = any>(initialState: T, methods: ReducerMethods<
     const method: ReducerMethod<T> | undefined = methods[action.type];
 
     if (!method || action.error) {
-      return state;
+      return initialState;
     }
 
     return method(state, action);

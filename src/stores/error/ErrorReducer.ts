@@ -12,9 +12,9 @@ const errorReducer: Reducer = (
 
   const isError = Boolean(error) && type.includes('_FINISHED');
 
-  const isNewErrorType = type.includes('_REQUEST') && !type.includes('_FINISHED');
+  const isNewRequestType = type.includes('_REQUEST') && !type.includes('_FINISHED');
 
-  if (isNewErrorType) {
+  if (isNewRequestType) {
     return initialState;
   }
 
