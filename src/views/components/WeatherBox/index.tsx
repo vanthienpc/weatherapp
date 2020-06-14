@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
+import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import IStore from 'models/IStore';
 import { useSelector } from 'utilities/HookUtility';
@@ -19,7 +20,15 @@ const BoxCard = styled(Col).attrs(() => ({
   sm: 24,
   md: 8,
 }))`
+  text-align: center;
   margin-bottom: 16px;
+`;
+
+const FlexColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const DayOfWeek = styled.span`
@@ -29,17 +38,50 @@ const DayOfWeek = styled.span`
   margin-bottom: 16px;
 `;
 
-const TemperRange = styled.span`
-  display: block;
+const Symbol = styled.img.attrs((props) => ({ ...props }))`
+  margin-bottom: 16px;
 `;
 
-const WeatherCard: React.FC<WeatherModel> = ({ dayOfWeek, temperMin, temperMax }) => {
+const TemperState = styled(FlexColumn)`
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+`;
+
+const TemperRange = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const TemperLimit = styled(FlexColumn)``;
+
+const WeatherCard: React.FC<WeatherModel> = ({
+  dayOfWeek,
+  icon,
+  state,
+  temperCur,
+  temperMin,
+  temperMax,
+}) => {
   return (
     <BoxCard>
       <Card hoverable>
         <DayOfWeek>{dayOfWeek}</DayOfWeek>
+        <Symbol src={icon} loading="lazy" />
+        <TemperState>
+          {temperCur} <br /> {state}
+        </TemperState>
         <TemperRange>
-          {temperMin} - {temperMax}
+          <TemperLimit>
+            <CaretUpOutlined />
+            {temperMin}
+            <span>Min</span>
+          </TemperLimit>
+          <TemperLimit>
+            <CaretDownOutlined />
+            {temperMax}
+            <span>Max</span>
+          </TemperLimit>
         </TemperRange>
       </Card>
     </BoxCard>

@@ -43,6 +43,9 @@ it('render should match the snapshot', () => {
     {
       id: 1,
       dayOfWeek: 'Tuesday',
+      icon: 'https://openweathermap.org/img/wn/10n@2x.png',
+      state: 'Rain',
+      temperCur: '29 °C',
       temperMin: `29 °C`,
       temperMax: `31 °C`,
     },

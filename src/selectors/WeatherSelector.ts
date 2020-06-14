@@ -4,6 +4,8 @@ import groupBy from 'lodash/groupBy';
 import IStore from 'models/IStore';
 import { WeatherModel } from 'stores/weather/models/WeatherModel';
 
+const urlIcon = (type: string) => `https://openweathermap.org/img/wn/${type}@2x.png`;
+
 const getWeather = (state: IStore): any => state.weather;
 
 export const selectWeatherListWithFiveDays = createSelector(getWeather, ({ list }):
@@ -21,6 +23,9 @@ export const selectWeatherListWithFiveDays = createSelector(getWeather, ({ list 
     return listWithLatestTime.map((item: any) => ({
       id: item.dt,
       dayOfWeek: format(new Date(item.dt_txt), 'EEEE'),
+      icon: urlIcon(item.weather[0].icon),
+      state: item.weather[0].main,
+      temperCur: `${item.main.temp} °C`,
       temperMin: `${item.main.temp_min} °C`,
       temperMax: `${item.main.temp_max} °C`,
     }));

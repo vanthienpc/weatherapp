@@ -7,7 +7,7 @@ import WeatherBox from 'views/components/WeatherBox';
 
 const Home: React.FC = () => (
   <Row justify="space-around">
-    <Col xs={22} sm={20} md={14}>
+    <Col xs={22} sm={20} md={18} lg={14}>
       <SearchBox />
       <ErrorBox />
       <WeatherBox />
