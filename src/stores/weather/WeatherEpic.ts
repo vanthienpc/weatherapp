@@ -1,7 +1,7 @@
 import IStore from 'models/IStore';
 import { Action } from 'redux';
 import IAction from 'models/IAction';
-import { ofType } from 'redux-observable';
+import { ofType, combineEpics } from 'redux-observable';
 import { of, Observable } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import * as WeatherType from './WeatherType';
@@ -25,4 +25,4 @@ const fetchWeatherEpic = (
     ),
   );
 
-export default [fetchWeatherEpic];
+export default combineEpics(fetchWeatherEpic);
