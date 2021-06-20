@@ -6,6 +6,6 @@ import RequestState from 'stores/request/models/RequestState';
 export default interface StoreModel {
   readonly error: ErrorState;
   readonly request: RequestState;
-  readonly router: RouterState;
+  readonly router?: RouterState;
   readonly weather: WeatherState;
 }

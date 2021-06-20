@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose, Middleware, Store, StoreEnhancer
 import createSagaMiddleware, { SagaMiddleware } from 'redux-saga';
 import { createBrowserHistory, History } from 'history';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { routerMiddleware, RouterState } from 'connected-react-router';
+import { routerMiddleware } from 'connected-react-router';
 import StoreModel from 'models/StoreModel';
 import rootSaga from './rootSaga';
 import rootReducer from './rootReducer';
@@ -12,7 +12,6 @@ export const history: History = createBrowserHistory();
 export const initialState: StoreModel = {
   error: {},
   request: {},
-  router: {} as RouterState,
   weather: {},
 };
 
