@@ -1,9 +1,9 @@
 import { createSelector, ParametricSelector } from 'reselect';
-import IStore from 'models/IStore';
-import IErrorState from 'stores/error/models/IErrorState';
+import StoreModel from 'models/StoreModel';
+import ErrorState from 'stores/error/models/ErrorState';
 import ErrorResponseModel from 'models/ErrorResponseModel';
 
-const getRawError = (errorState: IErrorState, actionTypes: string[]): IErrorState =>
+const getRawError = (errorState: ErrorState, actionTypes: string[]): ErrorState =>
   actionTypes.reduce((partialState: any, actionType: string) => {
     const model: ErrorResponseModel = errorState[actionType];
 
@@ -14,7 +14,7 @@ const getRawError = (errorState: IErrorState, actionTypes: string[]): IErrorStat
     return partialState;
   }, {});
 
-const getErrorText = (errorState: IErrorState, actionTypes: string[]): string => {
+const getErrorText = (errorState: ErrorState, actionTypes: string[]): string => {
   const errorList: string[] = actionTypes.reduce((errorMessages: string[], actionType: string) => {
     const model: ErrorResponseModel = errorState[actionType];
 
@@ -31,14 +31,14 @@ const getErrorText = (errorState: IErrorState, actionTypes: string[]): string =>
   return errorList.join(', ');
 };
 
-export const selectError: ParametricSelector<IStore, string[], IErrorState> = createSelector(
-  (state: IStore) => state.error,
-  (state: IStore, actionTypes: string[]) => actionTypes,
+export const selectError: ParametricSelector<StoreModel, string[], ErrorState> = createSelector(
+  (state: StoreModel) => state.error,
+  (state: StoreModel, actionTypes: string[]) => actionTypes,
   getRawError,
 );
 
-export const selectErrorText: ParametricSelector<IStore, string[], string> = createSelector(
-  (state: IStore) => state.error,
-  (state: IStore, actionTypes: string[]) => actionTypes,
+export const selectErrorText: ParametricSelector<StoreModel, string[], string> = createSelector(
+  (state: StoreModel) => state.error,
+  (state: StoreModel, actionTypes: string[]) => actionTypes,
   getErrorText,
 );

@@ -3,7 +3,7 @@ import { Input } from 'antd';
 import { SearchProps } from 'antd/lib/input';
 import styled from 'styled-components';
 import { Dispatch } from 'redux';
-import IStore from 'models/IStore';
+import IStore from 'models/StoreModel';
 import { useDispatch, useSelector } from 'utilities/HookUtility';
 import { selectRequest } from 'selectors/RequestSelector';
 import * as WeatherAction from 'stores/weather/WeatherAction';

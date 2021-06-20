@@ -1,10 +1,10 @@
 import { selectError, selectErrorText } from './ErrorSelector';
 import ErrorResponseModel from 'models/ErrorResponseModel';
-import IErrorState from 'stores/error/models/IErrorState';
+import ErrorState from 'stores/error/models/ErrorState';
 
 let store: any;
 let errorResponseModel: any;
-const actionType: string = 'SomeAction.REQUEST_TEST_FINISHED';
+const actionType = 'SomeAction.REQUEST_TEST_FINISHED';
 
 beforeEach(() => {
   errorResponseModel = new ErrorResponseModel();
@@ -28,7 +28,7 @@ describe('selectErrorText', () => {
 
   it('should return empty string', () => {
     const actualText: string = selectErrorText(store, ['noop']);
-    const expectedText: string = '';
+    const expectedText = '';
 
     expect(actualText).toEqual(expectedText);
   });
@@ -36,14 +36,14 @@ describe('selectErrorText', () => {
 
 describe('selectError', () => {
   it('should return same error model', () => {
-    const actualResult: IErrorState = selectError(store, [actionType]);
-    const expectedResult: IErrorState = store.error[actionType];
+    const actualResult: ErrorState = selectError(store, [actionType]);
+    const expectedResult: ErrorState = store.error[actionType];
 
     expect(actualResult).toBe(expectedResult);
   });
 
   it('should return undefined value', () => {
-    const actualResult: IErrorState = selectError(store, ['noop']);
+    const actualResult: ErrorState = selectError(store, ['noop']);
     const expectedResult: any = {
       [actionType]: undefined,
     };

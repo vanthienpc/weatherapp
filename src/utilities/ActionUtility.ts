@@ -1,4 +1,4 @@
-import IAction from 'models/IAction';
+import IAction from 'models/ActionModel';
 import { call, put } from 'redux-saga/effects';
 import ErrorResponseModel from 'models/ErrorResponseModel';
 
@@ -16,7 +16,7 @@ export function* createSagaEffect<P>(
 export const createAction = <T = undefined>(
   type: string,
   payload?: T,
-  error: boolean = false,
+  error = false,
   meta: any = null,
 ): IAction<T> => {
   return { type, payload, error, meta };

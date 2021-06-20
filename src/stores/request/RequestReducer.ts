@@ -1,13 +1,13 @@
 import { Reducer } from 'redux';
-import IAction from 'models/IAction';
-import IRequestState from './models/IRequestState';
+import IAction from 'models/ActionModel';
+import RequestState from './models/RequestState';
 
-export const initialState: IRequestState = {};
+export const initialState: RequestState = {};
 
 const requestReducer: Reducer = (
-  state: IRequestState = initialState,
+  state: RequestState = initialState,
   action: IAction<any>,
-): IRequestState => {
+): RequestState => {
   const { type } = action;
 
   const isRequestType: boolean = type.includes('_REQUEST');

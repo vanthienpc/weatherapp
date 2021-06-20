@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
 import { format } from 'date-fns';
 import groupBy from 'lodash/groupBy';
-import IStore from 'models/IStore';
+import StoreModel from 'models/StoreModel';
 import { WeatherModel } from 'stores/weather/models/WeatherModel';
 
 const urlIcon = (type: string) => `https://openweathermap.org/img/wn/${type}@2x.png`;
 
-const getWeather = (state: IStore): any => state.weather;
+const getWeather = (state: StoreModel): any => state.weather;
 
 export const selectWeatherListWithFiveDays = createSelector(getWeather, ({ list }):
   | WeatherModel[]

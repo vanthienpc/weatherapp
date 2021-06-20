@@ -1,13 +1,13 @@
 import { Reducer } from 'redux';
-import IAction from 'models/IAction';
-import IErrorState from './models/IErrorState';
+import IAction from 'models/ActionModel';
+import ErrorState from './models/ErrorState';
 
-export const initialState: IErrorState = {};
+export const initialState: ErrorState = {};
 
 const errorReducer: Reducer = (
-  state: IErrorState = initialState,
+  state: ErrorState = initialState,
   action: IAction<any>,
-): IErrorState => {
+): ErrorState => {
   const { type, error, payload } = action;
 
   const isError = Boolean(error) && type.includes('_FINISHED');

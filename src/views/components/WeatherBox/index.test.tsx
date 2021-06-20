@@ -5,10 +5,10 @@ import toJson from 'enzyme-to-json';
 import createSagaMiddleware from 'redux-saga';
 import configureStore from 'redux-mock-store';
 import * as HookUtility from 'utilities/HookUtility';
-import IWeatherState from 'stores/weather/models/IWeatherState';
+import WeatherState from 'stores/weather/models/WeatherState';
 import WeatherBox from '.';
 
-const setup = (initialState?: IWeatherState[] | undefined) => {
+const setup = (initialState?: WeatherState[] | undefined) => {
   let useEffect: any;
   let store: Store;
 
@@ -39,7 +39,7 @@ const setup = (initialState?: IWeatherState[] | undefined) => {
 };
 
 it('render should match the snapshot', () => {
-  const initialState: IWeatherState[] = [
+  const initialState: WeatherState[] = [
     {
       id: 1,
       dayOfWeek: 'Tuesday',

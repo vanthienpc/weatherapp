@@ -2,12 +2,10 @@ import { AxiosResponse } from 'axios';
 import environment from 'environment';
 import HttpUtility from 'utilities/HttpUtility';
 import ErrorResponseModel from 'models/ErrorResponseModel';
-import IWeatherState from './models/IWeatherState';
+import WeatherState from './models/WeatherState';
 
-export const fetchWeather = async (
-  payload: string,
-): Promise<IWeatherState | ErrorResponseModel> => {
-  const endpoint: string = `${environment.api.forecast}?q=${payload}&units=metric`;
+export const fetchWeather = async (payload: string): Promise<WeatherState | ErrorResponseModel> => {
+  const endpoint = `${environment.api.forecast}?q=${payload}&units=metric`;
   const headers = {
     'x-rapidapi-host': process.env.REACT_APP_API_HOST,
     'x-rapidapi-key': process.env.REACT_APP_API_KEY,

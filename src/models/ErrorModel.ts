@@ -1,4 +1,4 @@
-export default interface IError {
+export default interface ErrorModel {
   readonly id: string;
   readonly message: string;
 }

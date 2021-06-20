@@ -1,5 +1,5 @@
 import ErrorResponseModel from 'models/ErrorResponseModel';
 
-export default interface IErrorState {
+export default interface ErrorState {
   readonly [key: string]: ErrorResponseModel;
 }

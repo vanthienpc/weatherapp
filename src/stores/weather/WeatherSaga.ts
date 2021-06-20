@@ -1,4 +1,4 @@
-import IAction from 'models/IAction';
+import IAction from 'models/ActionModel';
 import * as WeatherAction from './WeatherAction';
 import * as WeatherEffect from './WeatherEffect';
 import * as ActionUtility from 'utilities/ActionUtility';

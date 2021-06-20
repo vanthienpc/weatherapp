@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card } from 'antd';
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import IStore from 'models/IStore';
+import StoreModel from 'models/StoreModel';
 import { useSelector } from 'utilities/HookUtility';
 import { WeatherModel } from 'stores/weather/models/WeatherModel';
 import * as WeatherType from 'stores/weather/WeatherType';
@@ -90,10 +90,10 @@ const WeatherCard: React.FC<WeatherModel> = ({
 
 const WeatherBox: React.FC = () => {
   const [weather, setWeather] = React.useState(undefined as WeatherModel[] | undefined);
-  const selectError = useSelector((state: IStore) =>
+  const selectError = useSelector((state: StoreModel) =>
     ErrorSelector.selectError(state, [WeatherType.FETCH_WEATHER_FINISHED]),
   );
-  const selectWeatherListWithFiveDays = useSelector((state: IStore) =>
+  const selectWeatherListWithFiveDays = useSelector((state: StoreModel) =>
     WeatherSelector.selectWeatherListWithFiveDays(state),
   );
 

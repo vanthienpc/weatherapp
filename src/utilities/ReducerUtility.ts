@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import IAction from 'models/IAction';
+import IAction from 'models/ActionModel';
 
 type ReducerMethod<T> = (state: T, action: IAction<any>) => T;
 type ReducerMethods<T> = { [actionType: string]: ReducerMethod<T> };

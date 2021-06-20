@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 const Home = React.lazy(() => import('./pages/Home'));
 
-const App: React.SFC = () => (
+const App: React.FC = () => (
   <ConnectedRouter history={history} noInitialPop>
     <React.Suspense fallback="loading...">
       <Switch>

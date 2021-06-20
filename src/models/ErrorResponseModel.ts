@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
-import IError from './IError';
+import ErrorModel from './ErrorModel';
 
-export default class ErrorResponseModel implements IError {
+export default class ErrorResponseModel implements ErrorModel {
   public readonly id: string = uuidv4();
-  public status: number = 0;
-  public message: string = '';
+  public status = 0;
+  public message = '';
   public errors: string[] = [];
-  public url: string = '';
+  public url = '';
   public raw: any = null;
 }
